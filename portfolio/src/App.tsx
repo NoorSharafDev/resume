@@ -5,9 +5,8 @@ function App() {
 
   return (
     <>
-   <div style={{margin: 12}}>
    <Homepage/>
-   </div>
+   
     </>
   )
 }

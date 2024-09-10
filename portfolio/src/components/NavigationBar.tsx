@@ -11,9 +11,11 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import {Colors} from '../constants/Colors'
 import {Fonts} from '../constants/Fonts';
-
-const {primary} = Colors;
-const {main} = Fonts
+import { FontSize } from '../constants/Fonts';
+import { SecondaryButton } from './Button';
+const { primary, secondary, grey } = Colors;
+const { main } = Fonts;
+const { bigHeading } = FontSize;
 
 const pages = ['Home', 'CV', 'Portfolio', 'About'];
 
@@ -34,7 +36,7 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" sx={{background: primary, borderRadius: 10, marginTop: 2, height: 70, justifyContent: 'center',   }}>
+    <AppBar position="static" sx={{background: primary, borderRadius: 10, marginTop: 2, height: 70, justifyContent: 'center',paddingRight: 2, paddingLeft: 2  }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -45,9 +47,7 @@ function ResponsiveAppBar() {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontWeight: 100,
-              letterSpacing: '.3rem',
-              color: 'inherit',
+              color: secondary,
               textDecoration: 'none',
               fontFamily: main,
             }}
@@ -62,7 +62,6 @@ function ResponsiveAppBar() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
             >
               <MenuIcon />
             </IconButton>
@@ -84,7 +83,7 @@ function ResponsiveAppBar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
+                  <Typography sx={{ textAlign: 'center' }} >{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -95,12 +94,8 @@ function ResponsiveAppBar() {
             component="a"
             href="#app-bar-with-responsive-menu"
             sx={{
-              mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
               textDecoration: 'none',
               fontFamily: main,
             }}
@@ -112,18 +107,14 @@ function ResponsiveAppBar() {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' , fontFamily: main}}
+                sx={{ my: 2, display: 'block' , fontFamily: main, color: grey, padding: 5, fontSize: bigHeading}}
               >
                 {page}
               </Button>
             ))}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
-        
-            <a href='https://www.google.com'>
-                LinkedIn
-            </a>
-            
+          <SecondaryButton>LinkedIn</SecondaryButton>
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
