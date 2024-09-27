@@ -3,3 +3,60 @@ body{
   font-weight: 100;
 }
 
+/* Navigation bar animation using keyframes */
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes blur {
+  0%{
+    opacity: 1;
+    
+  }
+  100%{
+    opacity: 0.3;
+  }
+}
+
+.videoContainer{
+animation: blur 4s ease-out forwards;
+animation-delay: 3s;
+
+}
+
+.navigationContainer{
+  animation: slideDown 2s ease-out;
+
+}
+
+@keyframes slide {
+
+  0%{
+    transform: translateX(100%);
+  }
+
+  100%{
+    transform: translateX(-130%);
+  }
+  
+}
+
+.slider{
+  display: flex;
+  gap: 20px;
+  animation: slide 40s linear infinite; 
+  white-space: nowrap;
+  max-width: 100%;
+}
